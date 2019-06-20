@@ -1,9 +1,8 @@
 const Koa = require('koa');
-
 const app = new Koa();
 
-var Router = require('koa-router');
-var router = new Router();
+const classic = require('./api/v1/classic');
+const book = require('./api/v1/book');
 
 // 洋葱模型
 // app.use(async (ctx, next) => {
@@ -16,11 +15,8 @@ var router = new Router();
 //   // return 2;
 // })
 
-// 路由系统
-router.get('/home', (ctx, next) => {
-  ctx.body = 'home';
-});
-
-app.use(router.routes());
+app.use(book.routes());
+app.use(classic.routes());
 
 app.listen(3000);
+
