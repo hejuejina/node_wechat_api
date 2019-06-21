@@ -1,5 +1,5 @@
-var Router = require('koa-router');
-var router = new Router();
+const Router = require('koa-router');
+const router = new Router();
 
 router.get('/v1/classic/my', (ctx, next) => {
   ctx.body = {
