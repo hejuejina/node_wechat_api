@@ -16,3 +16,10 @@ requireDirectory (module , path, { visit:visitor })
 ```
 
 将函数作为visit将添加到module.exports的每个模块调用
+
+# 2.全局异常处理
+
+## http请求四种传参的方式
+
+> url路径，query参数，header，body(post请求才有) 
+
