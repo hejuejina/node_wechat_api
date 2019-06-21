@@ -21,6 +21,7 @@
   "homepage": "https://github.com/hejuejina/node_wechat_api#readme",
   "dependencies": {
     "koa": "^2.7.0",
-    "koa-router": "^7.4.0"
+    "koa-router": "^7.4.0",
+    "require-directory": "^2.1.1"
   }
 }

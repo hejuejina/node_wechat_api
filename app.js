@@ -1,22 +1,15 @@
 const Koa = require('koa');
+var Router = require('koa-router');
+var requireDirectory = require('require-directory');
+var classic = require('./api/v1/classic')
+
 const app = new Koa();
 
-const classic = require('./api/v1/classic');
-const book = require('./api/v1/book');
+requireDirectory(module, './api', {visit:  visitor});
+function visitor(obj) {
 
-// 洋葱模型
-// app.use(async (ctx, next) => {
-//   ctx.body = ctx;
-//   console.log(ctx);
-//   const a = await next();
-// })
-
-// app.use((ctx, next) => {
-//   // return 2;
-// })
-
-app.use(book.routes());
-app.use(classic.routes());
-
+  if (obj instanceof Router) {
+    app.use(classic.routes());
+  }
+}
 app.listen(3000);
-
